@@ -1,0 +1,45 @@
+<h3>Hello {{name}}</h3>
+<p>{{email}}</p>
+<p>{{address.street}} {{address.city}} {{address.country}}</p>
+
+<p>{{Hobbies}}</p>
+<button (click) = "showHobbies =!showHobbies">{{showHobbies? 'Hide Hobbies' : 'Show Hobbies' }}</button>
+<div *ngIf = 'showHobbies'>
+<ul>
+  <li *ngFor="let hobby of hobbies; let i = index">{{hobby}}  <button (click)="deleteHobby(i)">x</button></li>
+
+  
+</ul>
+<form (submit)="addHobby(hobby.value)">
+<label>Edit Hobby:</label><br/>
+<input text="name" #hobby><br/>
+</form>
+</div>
+
+<br>
+<br>
+<hr/>
+
+<form>
+<label>Name</label><br/>
+<input text="name" type="name" [(ngModel)] = "name" [ngModelOptions]="{standalone: true}"><br/>
+<label>Email</label><br/>
+<input text="name" type="email" [(ngModel)] = "email" [ngModelOptions]="{standalone: true}"/><br/>
+<label>Street</label><br/>
+<input text="name" type="address.street" [(ngModel)] = "address.street" [ngModelOptions]="{standalone: true}"><br/>
+<label>City</label><br/>
+<input text="name" type="address.city" [(ngModel)] = "address.city" [ngModelOptions]="{standalone: true}"><br/>
+<label>Country</label><br/>
+<input text="name" type="address.country" [(ngModel)] = "address.country" [ngModelOptions]="{standalone: true}"><br/>
+<label>Hobbies</label><br/>
+<input text="name" type="Hobbies" [(ngModel)] = "Hobbies" [ngModelOptions]="{standalone: true}"><br/>
+</form>
+
+<hr/>
+<h3>Posts</h3>
+
+<div *ngFor = "let post of posts">
+   <h3>{{post.title}}</h3>
+   <p>{{post.body}}</p>
+</div>
+
